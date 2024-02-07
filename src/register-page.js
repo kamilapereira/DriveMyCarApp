@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native';
 
 const RegisterPage = () => {
     const navigation = useNavigation();
-
     return (
 
         <View style={styles.container}>
@@ -17,7 +16,7 @@ const RegisterPage = () => {
             <View style={styles.searchBar}>
                 <TextInput
                     style={styles.searchBarText}
-                    placeholder="username"
+                    placeholder="email"
                     placeholderTextColor="#000"
                 />
             </View>
@@ -33,7 +32,7 @@ const RegisterPage = () => {
                 <View style={styles.bodyTop}>
                     <TouchableOpacity
                         style={styles.bodyTopButton}
-                        onPress={() => navigation.navigate('Home')}
+                        onPress={() => addUser()}
                     >
                         <Text style={styles.bodyTopButtonText}>Register</Text>
                     </TouchableOpacity>
