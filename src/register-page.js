@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
         margin: 5,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 50,
+        borderRadius: 15,
         borderWidth: 1,
         borderColor: '#000',
     },
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
         padding: 15,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 50,
+        borderRadius: 15,
     },
     bodyTopButtonText: {
         fontSize: 20,
