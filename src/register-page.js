@@ -39,7 +39,6 @@ const RegisterPage = () => {
                 uid: user.uid,
                 phoneNumber: phoneNumber,
                 address: address,
-                licenseType: licenseType,
                 car: {
                     brand: brand,
                     model: model,
@@ -58,14 +57,17 @@ const RegisterPage = () => {
     return (
         <ScrollView style={{ width: "100%", maxHeight: "100%" }}>
 
-        <View style={styles.container}>
+            <View style={styles.container}>
 
-            <Image style={styles.logo} source={require('../images/logoDriveMyCar.jpg')} />
+                <Image style={styles.logo} source={require('../images/logoDriveMyCar.jpg')} />
 
+                <Text style={styles.textBody}>
+                    Registration Form: In order to access the app, you need to register first.
+                </Text>
 
                 <TextInput
                     style={styles.inputField}
-                    placeholder="Enter name"
+                    placeholder="Enter Fisrt name"
                     autoCapitalize="none"
                     autoCorrect={true}
                     textContentType="name"
@@ -108,7 +110,7 @@ const RegisterPage = () => {
                     placeholder="Enter your Age"
                     autoCapitalize="none"
                     autoCorrect={true}
-                    textContentType="name"    
+                    textContentType="name"
                     value={age}
                     onChangeText={(text) => setAge(text)}
                 />
@@ -205,15 +207,15 @@ const RegisterPage = () => {
 
                 </View>
 
-        </View>
-    </ScrollView>
+            </View>
+        </ScrollView>
     );
 
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 3,
+        flex: 1,
         margin: 'auto',
         width: '100%',
         height: '50%',
@@ -241,26 +243,20 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#000',
     },
-    searchBarText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#000',
-        marginLeft: 10,
-    },
     body: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
     bodyTop: {
         flexDirection: 'row',
-        width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 20,
-        marginBottom: 20,
+        marginBottom: '15%',
+        margin: '5%',
     },
     bodyTopButton: {
+        flex: 1,
         backgroundColor: '#000',
         width: '40%',
         margin: 5,
@@ -273,6 +269,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: '#fff',
+    },
+    textBody: {
+        fontSize: 18,
+        marginTop: '0%',
+        marginBottom: '8%',
+        marginHorizontal: '5%',
+        color: '#000',
+        justifyContent: 'center',
+        textAlign: 'center',
     },
 });
 
