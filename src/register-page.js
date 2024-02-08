@@ -20,7 +20,6 @@ const RegisterPage = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [age, setAge] = useState("");
     const [address, setAddress] = useState("");
-    const [licenseType, setLicenseType] = useState("");
     const [brand, setBrand] = useState("");
     const [model, setModel] = useState("");
     const [year, setYear] = useState("");
@@ -112,6 +111,24 @@ const RegisterPage = () => {
                     textContentType="name"    
                     value={age}
                     onChangeText={(text) => setAge(text)}
+                />
+
+                <TextInput style={styles.inputField}
+                    placeholder="Enter your Address"
+                    autoCapitalize="none"
+                    autoCorrect={true}
+                    textContentType="name"
+                    value={address}
+                    onChangeText={(text) => setAddress(text)}
+                />
+
+                <TextInput style={styles.inputField}
+                    placeholder="Enter your Phone Number"
+                    autoCapitalize="none"
+                    autoCorrect={true}
+                    textContentType="name"
+                    value={phoneNumber}
+                    onChangeText={(text) => setPhoneNumber(text)}
                 />
 
                 <TextInput
