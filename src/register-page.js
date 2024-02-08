@@ -1,5 +1,3 @@
-//create a simple register page
-
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, ScrollView } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';

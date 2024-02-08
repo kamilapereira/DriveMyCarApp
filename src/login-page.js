@@ -1,10 +1,26 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
 
 const LoginPage = () => {
     const navigation = useNavigation();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const onHandleLogin = () => {
+        if (email !== "" && password !== "") {
+          signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+              console.log("Login success");
+              navigation.navigate('Home');
+            })
+            .catch((err) => Alert.alert("Email or password invalid"));
+        }
+      };
 
     return (
 
@@ -14,13 +30,25 @@ const LoginPage = () => {
 
             <TextInput
                 style={styles.inputField}
-                placeholder="username"
+                placeholder="Enter email"
+                autoCapitalize="none"
+                keyboardType="email-address"
+                textContentType="emailAddress"
+                autoFocus={true}
+                value={email}
+                onChangeText={(text) => setEmail(text)}
                 placeholderTextColor="#AEAEAE"
             />
 
             <TextInput
                 style={styles.inputField}
-                placeholder="password"
+                placeholder="Enter password"
+                autoCapitalize="none"
+                autoCorrect={false}
+                secureTextEntry={true}
+                textContentType="password"
+                value={password}
+                onChangeText={(text) => setPassword(text)}
                 placeholderTextColor="#AEAEAE"
             />
 
@@ -29,7 +57,7 @@ const LoginPage = () => {
                 <View style={styles.bodyTop}>
                     <TouchableOpacity
                         style={styles.bodyTopButton}
-                        onPress={() => navigation.navigate('Home')}
+                        onPress={onHandleLogin}
                     >
                         <Text style={styles.bodyTopButtonText}>Login</Text>
                     </TouchableOpacity>
@@ -73,7 +101,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#fff',
         width: '80%',
-        height: 40,
+        height: 45,
         paddingStart: 15,
         margin: 15,
         alignItems: 'center',
@@ -106,7 +134,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 15,
-        
+
     },
     bodyTopButtonText: {
         fontSize: 20,
