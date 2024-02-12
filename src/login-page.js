@@ -5,22 +5,25 @@ import { useNavigation } from '@react-navigation/native';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 
+
 const LoginPage = () => {
     const navigation = useNavigation();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+
     const onHandleLogin = () => {
         if (email !== "" && password !== "") {
-          signInWithEmailAndPassword(auth, email, password)
-            .then(() => {
-              console.log("Login success");
-              navigation.navigate('Home');
-            })
-            .catch((err) => Alert.alert("Email or password invalid"));
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    console.log("Login success");
+                    navigation.navigate('Home');
+                })
+                .catch((err) => Alert.alert("Email or password invalid"));
         }
-      };
+    };
+
 
     return (
 
